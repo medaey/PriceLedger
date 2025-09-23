@@ -24,4 +24,4 @@ echo "🚀 Démarrage du serveur local sur http://localhost:$PORT ..."
 echo "Appuyez sur Ctrl+C pour arrêter."
 
 # Lancer le serveur HTTP
-$PYTHON_CMD -m http.server $PORT
+$PYTHON_CMD -m http.server $PORT --directory "$(dirname "$0")"
