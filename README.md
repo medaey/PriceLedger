@@ -1,4 +1,4 @@
-Parfait ! Voici le **README réorganisé** avec `start-web-server.sh` dans le dossier `web/` et le CLI séparé proprement. Tout est prêt pour GitHub :
+Parfait ! On peut **modifier ton README** pour intégrer le nouveau `run.sh` racine avec CLI implicite et arguments, et simplifier les instructions pour le web et le CLI. Voici une version finale adaptée :
 
 ---
 
@@ -33,18 +33,20 @@ Deux modes d’utilisation : **CLI Bash** ou **interface web**.
 
 ```
 PriceLedger/
-├── cli/
-│   └── crypto_price_checker.sh    # CLI pour consulter les prix
-├── web/
-│   ├── index.html                 # Page web principale
-│   ├── script.js                  # JavaScript pour interroger l’API
-│   └── start-web-server.sh        # CLI pour lancer le serveur web
-├── images/                        # Dossier pour images (ex: web_preview.png)
-├── README.md                      # Documentation
-└── LICENSE                        # License du projet
+├── cli/                             # Dossier contenant la version en terminal Bash
+│   └── crypto_price_checker.sh      # CLI pour consulter le prix historique des cryptomonnaies
+├── images/                          # Dossier pour les images du projet
+│   └── web_preview.png              # Capture d’écran de l’interface web pour le README
+├── LICENSE                          # Fichier de licence MIT
+├── README.md                        # Documentation du projet
+├── run.sh                           # Script racine pour lancer le CLI ou le serveur web
+└── web/                             # Dossier contenant l’interface web
+    ├── index.html                   # Page HTML principale de l’interface web
+    ├── script.js                    # JavaScript pour interroger l’API et gérer l’interface web
+    └── start-web-server.sh          # Script pour démarrer le serveur web local
 ```
 
-> Tout ce qui concerne l’interface web est regroupé dans `web/`, et le CLI est dans `cli/`.
+> Le script `run.sh` à la racine permet de lancer **le CLI (par défaut) ou le serveur web** de manière simple.
 
 ---
 
@@ -58,50 +60,45 @@ PriceLedger/
 
 ## 🚀 Installation et utilisation
 
-### Via le CLI Bash
+### Utilisation via `run.sh` (recommandé)
 
-1. Rendre le CLI exécutable :
-
-```bash
-chmod +x cli/crypto_price_checker.sh
-```
-
-2. Lancer le CLI :
+* **Lancer le CLI par défaut** :
 
 ```bash
-./cli/crypto_price_checker.sh -d 01/01/2023 -e BTC
+./run.sh -d 01/01/2023 -e BTC
 ```
 
-3. Suivre les instructions pour entrer la date et choisir la cryptomonnaie.
+* **Lancer le serveur web** :
 
-**Arguments optionnels :**
+```bash
+./run.sh web
+```
 
-* `-d JJ/MM/AAAA` → Spécifier la date
-* `-e BTC|ETH` → Choisir la cryptomonnaie
+> Le CLI accepte tous ses arguments habituels : `-d JJ/MM/AAAA` et `-e BTC|ETH`.
 
 ---
 
-### Via l’interface web
+### Optionnel : lancer directement les scripts
 
-1. Rendre le serveur web exécutable :
+#### CLI Bash
+
+```bash
+chmod +x cli/crypto_price_checker.sh
+./cli/crypto_price_checker.sh -d 01/01/2023 -e BTC
+```
+
+#### Serveur web
 
 ```bash
 chmod +x web/start-web-server.sh
-```
-
-2. Lancer le serveur web :
-
-```bash
 ./web/start-web-server.sh
 ```
 
-3. Ouvrir le navigateur à l’adresse :
+Puis ouvrir le navigateur à l’adresse :
 
 ```
 http://localhost:8000
 ```
-
-4. Entrer la date, sélectionner la cryptomonnaie et cliquer sur **Obtenir le prix**.
 
 ---
 
