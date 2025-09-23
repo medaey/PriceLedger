@@ -32,7 +32,7 @@ Deux modes d’utilisation : **CLI Bash** ou **interface web**.
 ## 🗂 Structure du projet
 
 ```
-crypto-price-checker/
+PriceLedger/
 ├── cli/
 │   └── crypto_price_checker.sh    # CLI pour consulter les prix
 ├── web/
