@@ -113,5 +113,5 @@ http://localhost:8000
 
 ## 📝 License
 
-MIT License © 2025 Médéric Cossu
+MIT License © 2026 Médéric Cossu
 Le logiciel est fourni "tel quel", sans aucune garantie. Voir `LICENSE` pour plus de détails.
