@@ -1,9 +1,26 @@
-// Initialisation : date du jour dans le champ <input type="date">
+// Initialisation : date du jour
 window.addEventListener('DOMContentLoaded', () => {
     const today = new Date();
     document.getElementById('date').value =
-        today.toISOString().split('T')[0]; // YYYY-MM-DD
+        today.toISOString().split('T')[0];
+
+    updateCryptoIcon(); // icône au chargement
 });
+
+// Icônes par crypto
+const cryptoIcons = {
+    BTC: '<i class="fa-brands fa-bitcoin"></i>',
+    ETH: '<i class="fa-brands fa-ethereum"></i>'
+};
+
+// Mise à jour de l’icône
+function updateCryptoIcon() {
+    const crypto = document.getElementById('crypto').value;
+    document.getElementById('cryptoIcon').innerHTML = cryptoIcons[crypto];
+}
+
+// Changement de crypto → icône
+document.getElementById('crypto').addEventListener('change', updateCryptoIcon);
 
 // Gestion du formulaire
 document.getElementById('cryptoForm').addEventListener('submit', (event) => {
@@ -18,7 +35,6 @@ document.getElementById('cryptoForm').addEventListener('submit', (event) => {
         return;
     }
 
-    // Conversion date -> timestamp Unix (en secondes)
     const timestamp = Math.floor(new Date(dateInput).getTime() / 1000);
 
     fetch(`https://min-api.cryptocompare.com/data/pricehistorical?fsym=${crypto}&ts=${timestamp}&tsyms=EUR`)
@@ -31,7 +47,6 @@ document.getElementById('cryptoForm').addEventListener('submit', (event) => {
                 return;
             }
 
-            // Format date FR pour affichage
             const [year, month, day] = dateInput.split('-');
             const dateFR = `${day}/${month}/${year}`;
 
@@ -39,8 +54,7 @@ document.getElementById('cryptoForm').addEventListener('submit', (event) => {
             resultDiv.className = "alert alert-success";
             resultDiv.style.display = "block";
         })
-        .catch(error => {
-            console.error(error);
+        .catch(() => {
             showError("Erreur lors de la récupération des données.");
         });
 });

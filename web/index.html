@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prix Cryptomonnaie</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -35,11 +37,34 @@
             </div>
             <div class="form-group">
                 <label for="crypto">Choisissez une cryptomonnaie :</label>
-                <select class="form-control" id="crypto" required>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                </select>
+            
+                <div class="position-relative">
+                    <select
+                        class="form-control"
+                        id="crypto"
+                        required
+                        style="padding-right: 4.8rem;"
+                    >
+                        <option value="BTC">Bitcoin</option>
+                        <option value="ETH">Ethereum</option>
+                    </select>
+                
+                    <!-- Icône crypto -->
+                    <span
+                        id="cryptoIcon"
+                        class="position-absolute"
+                        style="
+                            right: 3%;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            pointer-events: none;
+                            font-size: 1.4rem;
+                            color: #6c757d;
+                        "
+                    ></span>
+                </div>
             </div>
+
             <button type="submit" class="btn btn-primary btn-block">Obtenir le prix</button>
         </form>
         <div id="result" class="alert alert-info" style="display: none;"></div>
